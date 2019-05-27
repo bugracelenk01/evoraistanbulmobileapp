@@ -13,6 +13,7 @@ import {
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
 import { Actions } from "react-native-router-flux";
+import { DefaultHeader } from "../components";
 
 class Login extends Component {
   state = { email: "", password: "" };
@@ -29,7 +30,7 @@ class Login extends Component {
         blurRadius={1}
         style={{ width: "100%", height: "100%", resizeMode: "stretch" }}
       >
-        <Image style={styles.logo} source={require("../resources/logo.png")} />
+        <DefaultHeader back={true} />
         <Form style={{ marginTop: "10%" }}>
           <Item floatingLabel>
             <Label style={{ color: "#fff" }}>Kullanıcı Adı</Label>
@@ -57,8 +58,9 @@ class Login extends Component {
           block
           light
           style={styles.button}
-          onPress={() =>
-            login({ email: this.state.email, password: this.state.password })
+          onPress={
+            () =>
+              login({ email: this.state.email, password: this.state.password })
             // alert(this.state.email)
           }
         >
@@ -67,7 +69,13 @@ class Login extends Component {
           </Text>
         </Button>
 
-        <Button onPress={() => Actions.forgotPassword()} style={styles.buttonFlat} block transparent light>
+        <Button
+          onPress={() => Actions.forgotPassword()}
+          style={styles.buttonFlat}
+          block
+          transparent
+          light
+        >
           <Text light style={{ marginTop: "6%" }}>
             Şifremi Unuttum
           </Text>

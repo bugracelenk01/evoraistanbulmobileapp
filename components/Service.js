@@ -27,8 +27,8 @@ export default class Service extends Component {
 const style = StyleSheet.create({
 
   button: {
-    paddingTop: "10%",
-    paddingLeft: "5%",
+    paddingTop: "7%",
+    paddingLeft: "7%",
     borderRadius: 50
   }
 });
