@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default function setAuthToken(token) {
-  if(token) {
+  if(token != null) {
     axios.defaults.headers.common = { 
       'Authorization': `Baerer ${token}`
     }

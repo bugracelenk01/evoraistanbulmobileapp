@@ -31,6 +31,7 @@ import { connect } from "react-redux";
 import { getServices } from "../actions/mainPageActions";
 import { Actions } from "react-native-router-flux";
 import { DefaultHeader } from "../components";
+
 class MainPage extends Component {
   handleClick() {
     alert("Hello World");

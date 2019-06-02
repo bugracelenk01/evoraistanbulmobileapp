@@ -80,7 +80,13 @@ class Login extends Component {
             Şifremi Unuttum
           </Text>
         </Button>
-        <Button style={styles.buttonFlat} block transparent light>
+        <Button
+          style={styles.buttonFlat}
+          block
+          transparent
+          light
+          onPress={() => Actions.register()}
+        >
           <Text light style={{ marginTop: "6%" }}>
             Kayıt Ol
           </Text>

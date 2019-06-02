@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Header, Icon, Text, Left, Body, Right } from "native-base";
 import { TouchableOpacity, Image, StyleSheet } from "react-native";
 import { Actions } from "react-native-router-flux";
+import { connect } from "react-redux";
+import { logout } from "../actions/authActions";
 
-export default class DefaultHeader extends Component {
+class DefaultHeader extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,7 +27,11 @@ export default class DefaultHeader extends Component {
           ) : (
             <TouchableOpacity
               style={styles.loginIcon}
-              onPress={() => Actions.login()}
+              onPress={
+                this.props.auth
+                  ? () => Actions.login()
+                  : () => this.props.logout()
+              }
             >
               <Icon name="contact" style={{ color: "#fff", marginLeft: 10 }} />
               <Text
@@ -36,7 +42,7 @@ export default class DefaultHeader extends Component {
                   color: "#fff"
                 }}
               >
-                Giriş Yap
+                {this.props.isAuth ? "Çıkış Yap" : "Giriş Yap"}
               </Text>
             </TouchableOpacity>
           )}
@@ -47,7 +53,9 @@ export default class DefaultHeader extends Component {
             source={require("../resources/logo.png")}
           />
         </Body>
-        {back ? <Right /> : (
+        {back ? (
+          <Right />
+        ) : (
           <Right>
             <TouchableOpacity
               onPress={this.handleClick}
@@ -77,8 +85,11 @@ const styles = StyleSheet.create({
     height: 100
   },
   logo: {
-    marginLeft: "10%",
-    marginBottom: 20
+    marginLeft: -35,
+    marginTop: 20,
+    marginBottom: 20,
+    width: 350,
+    resizeMode: "center"
   },
   basketIcon: {
     right: 0,
@@ -99,3 +110,11 @@ const styles = StyleSheet.create({
     marginRight: 20
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    isAuth: state.auth.isAuthenticated
+  };
+}
+
+export default connect(mapStateToProps, { logout })(DefaultHeader);
