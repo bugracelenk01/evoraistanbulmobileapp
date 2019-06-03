@@ -8,13 +8,20 @@
 
 import React, { Component } from "react";
 import { AsyncStorage } from "react-native";
-import { Login, ForgotPassword, MainPage, RegisterUser } from "./views";
+import {
+  Login,
+  ForgotPassword,
+  MainPage,
+  RegisterUser,
+  ServicePage
+} from "./views";
 import { Router, Scene } from "react-native-router-flux";
 import { Provider } from "react-redux";
 import store from "./reducers/store";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser } from "./actions/authActions";
 import Loader from "./components/Loader";
+import { Footer } from "./components";
 
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest
   ? GLOBAL.originalXMLHttpRequest
@@ -47,8 +54,10 @@ export default class App extends Component {
             <Scene key="forgotPassword" component={ForgotPassword} />
             <Scene key="login" component={Login} />
             <Scene key="register" component={RegisterUser} />
+            <Scene key="service" component={ServicePage} />
           </Scene>
         </Router>
+        <Footer />
       </Provider>
     );
   }

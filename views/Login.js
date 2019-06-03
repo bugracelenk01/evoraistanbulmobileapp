@@ -13,7 +13,7 @@ import {
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
 import { Actions } from "react-native-router-flux";
-import { DefaultHeader } from "../components";
+import { Header } from "../components";
 
 class Login extends Component {
   state = { email: "", password: "" };
@@ -30,7 +30,7 @@ class Login extends Component {
         blurRadius={1}
         style={{ width: "100%", height: "100%", resizeMode: "stretch" }}
       >
-        <DefaultHeader back={true} />
+        <Header back={true} />
         <Form style={{ marginTop: "10%" }}>
           <Item floatingLabel>
             <Label style={{ color: "#fff" }}>Kullanıcı Adı</Label>

@@ -11,8 +11,11 @@
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.8",
+    "react-native-image-slider-box": "^1.0.2",
     "react-native-material-kit": "^0.5.1",
     "react-native-router-flux": "^4.0.6",
+    "react-native-slideshow": "^1.0.1",
+    "react-native-snap-carousel": "^3.8.0",
     "react-redux": "^7.0.3",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -28,5 +31,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./fonts/"
+    ]
   }
 }

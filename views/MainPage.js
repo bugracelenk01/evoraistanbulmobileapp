@@ -7,30 +7,11 @@
  */
 
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  FlatList,
-  View,
-  Image,
-  ImageBackground,
-  TouchableOpacity
-} from "react-native";
-import {
-  Icon,
-  Left,
-  Right,
-  Body,
-  Header,
-  Text,
-  Footer,
-  FooterTab,
-  Button
-} from "native-base";
-import { Service } from "../components";
+import { FlatList, ImageBackground } from "react-native";
+import { Service, Header } from "../components";
 import { connect } from "react-redux";
 import { getServices } from "../actions/mainPageActions";
-import { Actions } from "react-native-router-flux";
-import { DefaultHeader } from "../components";
+import { Container, Content } from "native-base";
 
 class MainPage extends Component {
   handleClick() {
@@ -51,8 +32,7 @@ class MainPage extends Component {
         style={{ width: "100%", height: "100%" }}
         blurRadius={1}
       >
-        <DefaultHeader back={false}/>
-
+        <Header />
         <FlatList
           numColumns={2}
           data={this.props.mainPage.services}
@@ -61,28 +41,10 @@ class MainPage extends Component {
           )}
           keyExtractor={(item, index) => index}
         />
-        <Footer>
-          <FooterTab>
-            <Button vertical active>
-              <Icon name="apps" />
-              <Text>Anasayfa</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="menu" />
-              <Text>Servisler</Text>
-            </Button>
-            <Button vertical>
-              <Icon active name="contact" />
-              <Text>Hesap</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
       </ImageBackground>
     );
   }
 }
-
-
 
 function mapStateToProps(state) {
   return {
