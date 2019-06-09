@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import authReducer from "./auth";
-import mainPageReducer from "./mainPage";
+import mainPageReducer from "./service";
 import loaderReducer from "./loader";
 
 export default combineReducers({

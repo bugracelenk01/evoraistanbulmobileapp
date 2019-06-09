@@ -10,7 +10,7 @@ import React, { Component } from "react";
 import { FlatList, ImageBackground } from "react-native";
 import { Service, Header } from "../components";
 import { connect } from "react-redux";
-import { getServices } from "../actions/mainPageActions";
+import { getServices, getService } from "../actions/serviceActions";
 import { Container, Content } from "native-base";
 
 class MainPage extends Component {
@@ -20,6 +20,7 @@ class MainPage extends Component {
 
   componentWillMount() {
     this.props.getServices();
+    this.props.getService(4);
   }
 
   render() {
@@ -54,5 +55,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getServices }
+  { getServices, getService }
 )(MainPage);

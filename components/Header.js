@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     height: 100
   },
   logo: {
-    marginLeft: -35,
+    marginLeft: 20,
     marginTop: 20,
     marginBottom: 20,
-    width: 350,
-    resizeMode: "center"
+    width: 200,
+    resizeMode: "contain"
   },
   basketIcon: {
     right: 0,

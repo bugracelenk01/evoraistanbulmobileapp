@@ -1,6 +1,22 @@
+//TODO: Create redux actions for this page and connect them.
+
 import React, { Component } from "react";
-import { ImageBackground, ScrollView, Image, View, Dimensions} from "react-native";
-import { Card, Container, Content, CardItem, Body, Text } from "native-base";
+import {
+  ImageBackground,
+  ScrollView,
+  Image,
+  View,
+  Dimensions
+} from "react-native";
+import {
+  Card,
+  Container,
+  Content,
+  CardItem,
+  Body,
+  Text,
+  Button
+} from "native-base";
 import { connect } from "react-redux";
 import { Header } from "../components";
 import { SliderBox } from "react-native-image-slider-box";
@@ -16,8 +32,18 @@ class ServicePage extends Component {
         blurRadius={1}
       >
         <Header back={true} />
-        <Content padder style={{ marginTop: "5%"}}>
-          <Text style={{ color: "#fff", fontSize: 23, marginLeft: "28%", marginBottom: "5%", fontFamily: "Montserrat-Bold"}}>Service Name</Text>
+        <Content padder style={{ marginTop: "5%" }}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 23,
+              textAlign: "center",
+              marginBottom: "5%",
+              fontFamily: "Montserrat-Bold"
+            }}
+          >
+            Service Name
+          </Text>
           <SliderBox
             images={[
               "https://source.unsplash.com/1024x768/?nature",
@@ -27,32 +53,42 @@ class ServicePage extends Component {
             ]}
             dotColor="#FFEE58"
             inactiveDotColor="#90A4AE"
-            parentWidth={(Dimensions.get("window").width*94)/100}
+            parentWidth={(Dimensions.get("window").width * 94) / 100}
             circleLoop={true}
           />
 
           <Card>
             <CardItem>
               <Body>
-                <Text></Text>
+                <Text
+                  style={{ fontFamily: "Montserrat-Regular", fontSize: 17 }}
+                >
+                  Lorem ipsum doler Lorem ipsum doler Lorem ipsum doler Lorem
+                  ipsum doler Lorem ipsum doler Lorem ipsum doler Lorem ipsum
+                  doler Lorem ipsum doler Lorem ipsum doler Lorem ipsum doler{" "}
+                </Text>
               </Body>
             </CardItem>
           </Card>
+
+          <Button bordered block light style={{ marginTop: "5%" }}>
+            <Text>Hizmeti Al</Text>
+          </Button>
         </Content>
       </ImageBackground>
     );
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     state
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
 
-// export default connect(
-//   mapStateToProps,
-//   null
-// )(ServicePage);
+export default connect(
+  mapStateToProps,
+  null
+)(ServicePage);
 
-export default ServicePage;
+// export default ServicePage;

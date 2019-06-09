@@ -3,3 +3,4 @@ export const LOGOUT_USER = "LOGOUT_USER";
 export const GET_SERVICES = "GET_SERVICES";
 export const OPEN_LOADER = "OPEN_LOADER";
 export const CLOSE_LOADER = "CLOSE_LOADER";
+export const GET_SERVICE = "GET_SERVICE";
