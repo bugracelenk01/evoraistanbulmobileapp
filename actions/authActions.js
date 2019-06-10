@@ -1,12 +1,15 @@
 import axios from "axios";
 import { AsyncStorage } from "react-native";
-import { SET_USER, LOGOUT_USER, OPEN_LOADER, CLOSE_LOADER } from "./types";
+import { SET_USER, LOGOUT_USER, CHANGE_COMPONENT_STATE } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import { Actions } from "react-native-router-flux";
 
 export function login(data) {
   return dispatch => {
-    dispatch({ type: OPEN_LOADER });
+    dispatch({
+      type: CHANGE_COMPONENT_STATE,
+      payload: { component: "loader", state: true }
+    });
     return axios
       .post("http://localhost:3010/api/users/login", {
         email: data.email,
@@ -23,7 +26,10 @@ export function login(data) {
       .catch(err => alert(err))
       .finally(() => {
         Actions.main();
-        dispatch({ type: CLOSE_LOADER });
+        dispatch({
+          type: CHANGE_COMPONENT_STATE,
+          payload: { component: "loader", state: false }
+        });
       });
   };
 }
@@ -52,7 +58,10 @@ export function logoutUser() {
 
 export function registerUser(data) {
   return dispatch => {
-    dispatch({ type: OPEN_LOADER });
+    dispatch({
+      type: CHANGE_COMPONENT_STATE,
+      payload: { component: "loader", state: true }
+    });
     return axios
       .post("http://localhost:3010/api/users/signup", {
         authData: data.authData,
@@ -72,7 +81,10 @@ export function registerUser(data) {
         alert(err);
       })
       .finally(() => {
-        dispatch({ type: CLOSE_LOADER });
+        dispatch({
+          type: CHANGE_COMPONENT_STATE,
+          payload: { component: "loader", state: false }
+        });
         Actions.main();
       });
   };

@@ -82,7 +82,7 @@ class ServicePage extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    currentService: state.service.service
   };
 }
 

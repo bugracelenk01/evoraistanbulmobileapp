@@ -36,7 +36,7 @@ class MainPage extends Component {
         <Header />
         <FlatList
           numColumns={2}
-          data={this.props.mainPage.services}
+          data={this.props.service.services}
           renderItem={({ item }) => (
             <Service image={item.image} serviceName={item.name} />
           )}
@@ -49,7 +49,7 @@ class MainPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    mainPage: state.mainPage
+    service: state.service
   };
 }
 

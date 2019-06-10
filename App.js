@@ -21,7 +21,7 @@ import store from "./reducers/store";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser } from "./actions/authActions";
 import Loader from "./components/Loader";
-import { Footer } from "./components";
+import { Footer,ShoppingCart } from "./components";
 
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest
   ? GLOBAL.originalXMLHttpRequest
@@ -48,6 +48,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Loader />
+        <ShoppingCart />
         <Router>
           <Scene key="root" component={MainPage} hideNavBar={true}>
             <Scene key="main" component={MainPage} />

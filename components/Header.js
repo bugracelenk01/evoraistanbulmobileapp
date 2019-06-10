@@ -4,6 +4,8 @@ import { TouchableOpacity, Image, StyleSheet } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 import { logout } from "../actions/authActions";
+import store from "../reducers/store";
+import { CHANGE_COMPONENT_STATE } from "../actions/types";
 
 class DefaultHeader extends Component {
   constructor(props) {
@@ -58,7 +60,12 @@ class DefaultHeader extends Component {
         ) : (
           <Right>
             <TouchableOpacity
-              onPress={this.handleClick}
+              onPress={() =>
+                store.dispatch({
+                  type: CHANGE_COMPONENT_STATE,
+                  payload: { component: "cart", state: true }
+                })
+              }
               style={styles.basketIcon}
             >
               <Icon name="basket" style={{ color: "#fff", marginLeft: 10 }} />
@@ -117,4 +124,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { logout })(DefaultHeader);
+export default connect(
+  mapStateToProps,
+  { logout }
+)(DefaultHeader);

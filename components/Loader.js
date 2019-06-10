@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading.loader
+    loading: state.component.loader
   };
 }
 
